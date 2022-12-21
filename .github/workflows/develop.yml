@@ -3,7 +3,7 @@ name: "[DEVELOP] Unity Actions 😎"
 on: 
   push:
     branches: 
-      - develop
+      - 'develop'
 
 jobs:
   build:
@@ -19,6 +19,7 @@ jobs:
         targetPlatform:
           - Android # Build an Android player.
     steps:
+      
       # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -42,7 +43,6 @@ jobs:
           git lfs pull
           git add .
           git reset --hard
-
       # Cache
       - uses: actions/cache@v2
         with:
@@ -54,7 +54,6 @@ jobs:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
             Library-
-
       # Test
       - name: Run tests
         uses: game-ci/unity-test-runner@v2
