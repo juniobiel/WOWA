@@ -5,17 +5,17 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 **/[Ll]ibrary/**
 **/[Tt]emp/**
 **/[Oo]bj/**
-**/[Bb]uild/**
-**/[Bb]uilds/**
 **/[Ll]ogs/
 **/[Mm]emoryCaptures/**
+
+# Build folder include
+src/build/**
+!src/build/README.md
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
