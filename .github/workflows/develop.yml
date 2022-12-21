@@ -77,10 +77,11 @@ jobs:
         with:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }
-      
+          targetPlatform: ${{ matrix.targetPlatform }}
+
       #Output
-      - uses: actions/upload-artifact@v2
+      - name: Output project
+        uses: actions/upload-artifact@v2
         with:
           name: Feature-Build-${{ matrix.targetPlatform}}
           path: build/Feature-${{ matrix.targetPlatform}}
