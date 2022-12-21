@@ -83,8 +83,8 @@ jobs:
 
       #Output
       - name: Output project
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Feature-Build-${{ matrix.targetPlatform}}
-          path: src/build
+          path: build/
 
