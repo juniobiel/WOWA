@@ -19,8 +19,6 @@ jobs:
         targetPlatform:
           - Android # Build an Android player.
     steps:
-      
-      # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -82,18 +80,7 @@ jobs:
         with:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-          
-          
-          # Configurations for master branch
-          #versioning: Semantic
-          # androidAppBundle: true
-          # androidKeystoreName: user.keystore
-          # androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          # androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
-          # androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
-          # androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
-
+          targetPlatform: ${{ matrix.targetPlatform }
       Output:
       - uses: actions/upload-artifact@v2
         with:
