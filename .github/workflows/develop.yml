@@ -86,5 +86,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Feature-Build-${{ matrix.targetPlatform}}
-          path: build/
+          path: src/build/${{ matrix.targetPlatform}}
 
