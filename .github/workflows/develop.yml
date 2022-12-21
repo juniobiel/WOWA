@@ -1,9 +1,9 @@
-name: "[DEV] Unity Actions 😎"
+name: "[Feature] Unity Actions 😎"
 
 on: 
   push:
     branches:
-      - develop
+      - 'feature/**'
 
 jobs:
   build:
@@ -17,6 +17,7 @@ jobs:
         unityVersion:
           - 2021.3.16f1
         targetPlatform:
+          - WebGL #Build an WebGL player.
           - Android # Build an Android player.
     steps:
       # Checkout (without LFS)
@@ -54,16 +55,17 @@ jobs:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
             Library-
-      # Test
-      # - name: Run tests
-      #   uses: game-ci/unity-test-runner@v2
-      #   id: testRunner
-      #   env:
-      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      #   with:
-      #     projectPath: ${{ matrix.projectPath }}
-      #     unityVersion: ${{ matrix.unityVersion }}
-      #     githubToken: ${{ secrets.GITHUB_TOKEN }}  
+
+      Test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v2
+        id: testRunner
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}  
 
       # Build
       - name: Build project
@@ -78,9 +80,8 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }
       
       #Output
-      - name: Output Project
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
-          name: Develop-Build-${{ matrix.targetPlatform}}
-          path: build/Develop-${{ matrix.targetPlatform}}
+          name: Feature-Build-${{ matrix.targetPlatform}}
+          path: build/Feature-${{ matrix.targetPlatform}}
 
