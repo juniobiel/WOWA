@@ -1,9 +1,7 @@
 name: "[DEV] Unity Actions 😎"
 
 on: 
-  pull_request_target:
-    types:
-      - closed
+  push:
     branches:
       - develop
 
@@ -44,6 +42,7 @@ jobs:
           git lfs pull
           git add .
           git reset --hard
+          
       # Cache
       - uses: actions/cache@v2
         with:
