@@ -14,8 +14,7 @@
 **/[Mm]emoryCaptures/**
 
 # Build folder include
-src/build/**
-!src/build/README.md
+!src/build/
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
