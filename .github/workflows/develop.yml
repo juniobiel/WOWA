@@ -1,9 +1,9 @@
-name: "[DEVELOP] Unity Actions 😎"
+name: "[DEV] Unity Actions 😎"
 
 on: 
   push:
     branches: 
-      - 'develop'
+      - 'feature/**'
 
 jobs:
   build:
@@ -19,6 +19,7 @@ jobs:
         targetPlatform:
           - Android # Build an Android player.
     steps:
+      # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -81,7 +82,8 @@ jobs:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }
-      Output:
+      
+      #Output
       - uses: actions/upload-artifact@v2
         with:
           name: Develop-Build-${{ matrix.targetPlatform}}
