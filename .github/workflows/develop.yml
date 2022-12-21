@@ -65,22 +65,21 @@ jobs:
           unityVersion: ${{ matrix.unityVersion }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}  
 
-      # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }
+      # # Build
+      # - name: Build project
+      #   uses: game-ci/unity-builder@v2
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      #     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      #   with:
+      #     projectPath: ${{ matrix.projectPath }}
+      #     unityVersion: ${{ matrix.unityVersion }}
+      #     targetPlatform: ${{ matrix.targetPlatform }
       
-      #Output
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Develop-Build-${{ matrix.targetPlatform}}
-          path: build/Develop-${{ matrix.targetPlatform}}
+      # #Output
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Develop-Build-${{ matrix.targetPlatform}}
+      #     path: build/Develop-${{ matrix.targetPlatform}}
 
-          
