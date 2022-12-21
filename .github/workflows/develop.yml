@@ -55,15 +55,15 @@ jobs:
             Library-${{ matrix.projectPath }}-
             Library-
       # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v2
-        id: testRunner
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}  
+      # - name: Run tests
+      #   uses: game-ci/unity-test-runner@v2
+      #   id: testRunner
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #   with:
+      #     projectPath: ${{ matrix.projectPath }}
+      #     unityVersion: ${{ matrix.unityVersion }}
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}  
 
       # Build
       - name: Build project
