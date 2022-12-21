@@ -94,8 +94,8 @@ jobs:
           # androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
           # androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
           # androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
-          
-      Output
+
+      Output:
       - uses: actions/upload-artifact@v2
         with:
           name: Develop-Build-${{ matrix.targetPlatform}}
