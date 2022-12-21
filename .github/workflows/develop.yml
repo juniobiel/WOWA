@@ -64,7 +64,7 @@ jobs:
         with:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
-          githubToken: ${{ secrets.GIT_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Test coverage
       - uses: actions/upload-artifact@v2
