@@ -78,6 +78,7 @@ jobs:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
+          allowDirtyBuild: true
           versioning: Semantic
 
       #Output
