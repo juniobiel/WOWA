@@ -1,9 +1,9 @@
 name: "[DEV] Unity Actions 😎"
 
 on: 
-  pull_request:
+  push:
     branches: 
-      - 'develop'
+      - develop
 
 jobs:
   build:
