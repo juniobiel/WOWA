@@ -13,8 +13,8 @@
 **/[Ll]ogs/
 **/[Mm]emoryCaptures/**
 
-# Build folder include
-!src/build/
+# Build folder
+src/[Bb]uild/*
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
