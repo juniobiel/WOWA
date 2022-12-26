@@ -5,17 +5,16 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 **/[Ll]ibrary/**
 **/[Tt]emp/**
 **/[Oo]bj/**
-**/[Bb]uild/**
-**/[Bb]uilds/**
 **/[Ll]ogs/
 **/[Mm]emoryCaptures/**
+
+# Build folder
+src/[Bb]uild/*
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
