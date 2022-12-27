@@ -80,6 +80,7 @@ ignore.conf
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Android Keystore
-*/user.keystore
+**.keystore
 
+# Arquivos de anotação
 *.txt
