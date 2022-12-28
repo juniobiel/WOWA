@@ -21,7 +21,7 @@ jobs:
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.6.0
         with:
           fetch-depth: 0
           lfs: true
@@ -31,7 +31,7 @@ jobs:
         run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
       - name: Restore LFS cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3.2.2
         id: lfs-cache
         with:
           path: .git/lfs
@@ -44,7 +44,7 @@ jobs:
           git reset --hard
 
       # Cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.2.2
         with:
           path: ${{ matrix.projectPath }}/Library
           key:
@@ -74,6 +74,13 @@ jobs:
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
           androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
           androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }} 
+        
+      #Output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Feature-Build-${{ matrix.targetPlatform}}
+          path: build/${{ matrix.targetPlatform}}
+          if-no-files-found: ignore
 
   pullToDevelop:
     name: Create pull request to develop
@@ -82,7 +89,7 @@ jobs:
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.6.0
         with:
           fetch-depth: 0
           lfs: true
@@ -91,7 +98,7 @@ jobs:
       - name: Created pull request to develop
         uses: peter-evans/create-pull-request@v4
         with:
-          base: develop
+          branch: develop
 
       
 
