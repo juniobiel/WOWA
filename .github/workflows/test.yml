@@ -19,10 +19,7 @@ jobs:
 
       # Create pull request
       - name: Created pull request to develop
-        uses: peter-evans/create-pull-request@v4
+        uses: repo-sync/pull-request@v2
         with:
-          branch: develop
-          base: ${{ github.ref_name }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: 'Auto PR ${{ github.ref_name }}  to develop'
+          destination_branch: "develop"
 
