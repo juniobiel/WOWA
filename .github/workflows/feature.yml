@@ -70,8 +70,20 @@ jobs:
           allowDirtyBuild: true
           versioning: Semantic
 
+  pullToDevelop:
+    name: Create pull request to develop
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # Checkout (without LFS)
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+
       # Create pull request
-      - name: Create pull request to develop
+      - name: Created pull request to develop
         uses: peter-evans/create-pull-request@v4
         with:
           base: develop
