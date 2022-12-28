@@ -3,7 +3,7 @@ name: "[Feature] Unity Actions 😎"
 on: 
   push:
     branches:
-      - 's/**'
+      - 'feature/**'
 
 jobs:
   build:
@@ -89,12 +89,10 @@ jobs:
 
       # Create pull request
       - name: Created pull request to develop
-        uses: peter-evans/create-pull-request@v4
+        uses: repo-sync/pull-request@v2
         with:
-          branch: ${{ github.head_ref }}
-          base: develop
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Auto PR ${{ github.head_ref }} to develop"
+          destination_branch: "develop"
+          pr_title: "Pulling ${{ github.ref }} into develop"
           
 
       
