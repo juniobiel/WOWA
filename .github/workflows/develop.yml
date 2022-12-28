@@ -1,9 +1,9 @@
-name: "[Feature] Unity Actions 😎"
+name: "[Develop] Unity Actions 😎"
 
 on: 
   push:
     branches:
-      - 'feature/**'
+      - 'develop'
 
 jobs:
   testRunner:
