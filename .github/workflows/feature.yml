@@ -17,7 +17,6 @@ jobs:
         unityVersion:
           - 2021.3.16f1
         targetPlatform:
-          - WebGL #Build an WebGL player.
           - Android # Build an Android player.
     steps:
       # Checkout (without LFS)
@@ -69,6 +68,12 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           allowDirtyBuild: true
           versioning: Semantic
+          androidAppBundle: true
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }} 
 
   pullToDevelop:
     name: Create pull request to develop
