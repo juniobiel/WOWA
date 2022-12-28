@@ -98,9 +98,10 @@ jobs:
       - name: Created pull request to develop
         uses: peter-evans/create-pull-request@v4
         with:
+          branch: ${{ github.head_ref }}
           base: develop
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Auto PR $GITHUB_HEAD_REF to develop"
+          title: "Auto PR ${{ github.head_ref }} to develop"
           
 
       
