@@ -68,7 +68,7 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           allowDirtyBuild: true
           versioning: Semantic
-          androidAppBundle: true
+          androidAppBundle: false
           androidKeystoreName: user.keystore
           androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
@@ -98,7 +98,10 @@ jobs:
       - name: Created pull request to develop
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: develop
+          base: develop
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Auto PR $GITHUB_HEAD_REF to develop"
+          
 
       
 
