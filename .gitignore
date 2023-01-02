@@ -5,17 +5,16 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 **/[Ll]ibrary/**
-**//[Tt]emp/**
-**//[Oo]bj/**
-**//[Bb]uild/**
-**//[Bb]uilds/**
-**//[Ll]ogs/**
-**//[Mm]emoryCaptures/**
+**/[Tt]emp/**
+**/[Oo]bj/**
+**/[Ll]ogs/
+**/[Mm]emoryCaptures/**
+
+# Build folder
+src/[Bb]uild/*
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
@@ -79,3 +78,9 @@ ignore.conf
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Android Keystore
+**.keystore
+
+# Arquivos de anotação
+*.txt
