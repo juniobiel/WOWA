@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - src/
+          - apps/
         unityVersion:
           - 2021.3.16f1
         targetPlatform:
@@ -93,6 +93,7 @@ jobs:
         with:
           destination_branch: "develop"
           pr_title: "Pulling ${{ github.ref }} into develop"
+  
           
 
       
