@@ -7,7 +7,7 @@ on:
 
 jobs:
   testRunner:
-    name: Test for ${{ matrix.targetPlatform }}
+    name: Project tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -74,7 +74,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - src/
+          - apps/
         unityVersion:
           - 2021.3.16f1
         targetPlatform:
