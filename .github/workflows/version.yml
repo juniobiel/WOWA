@@ -2,9 +2,17 @@
 name: Git Version
 
 on:
+  pull_request:
+    branches:
+    - develop
+    - main
   push:
     branches:
-      - master
+    - develop
+    - main
+    - 'release/**'
+    - 'hotfix/**'
+
 
 jobs:
   lint:
