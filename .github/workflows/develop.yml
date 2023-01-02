@@ -131,6 +131,12 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           allowDirtyBuild: true
           versioning: Semantic
+          androidAppBundle: false
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }} 
 
       #Output
       - uses: actions/upload-artifact@v3
@@ -138,4 +144,3 @@ jobs:
           name: Feature-Build-${{ matrix.targetPlatform}}
           path: build/${{ matrix.targetPlatform}}
           if-no-files-found: ignore
-
