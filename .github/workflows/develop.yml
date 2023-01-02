@@ -157,8 +157,8 @@ jobs:
           lfs: true
 
       # Create pull request
-      - name: Created pull request to develop
+      - name: Created pull request to main
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: "develop"
+          destination_branch: "main"
           pr_title: "Pulling ${{ github.ref }} into main"
