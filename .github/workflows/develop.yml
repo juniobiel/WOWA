@@ -140,7 +140,7 @@ jobs:
       #Output
       - uses: actions/upload-artifact@v3
         with:
-          name: Feature-Build-${{ matrix.targetPlatform}}
+          name: Develop-Build-${{ matrix.targetPlatform}}
           path: build/${{ matrix.targetPlatform}}
           if-no-files-found: ignore
       
@@ -158,7 +158,7 @@ jobs:
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{ env.BUTLER_API_KEY }}
-          gameData: ./build/WebGL
+          gameData: ./build/Develop-Build-WebGL
           itchUsername: ${{ env.ITCH_USERNAME }}
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: webgl
