@@ -89,9 +89,8 @@ jobs:
           destination_branch: "develop"
           pr_title: "Pulling ${{ github.ref }} into develop"
           pr_body: |
-          :crown: *Automated PR to develop*
-          _Created by [repo-sync/pull-request](https://github.com/repo-sync/pull-request)_
-          
+            :crown: *Automated PR to develop*
+
   
           
 
