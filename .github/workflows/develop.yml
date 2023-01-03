@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - apps/
+          - src/
         unityVersion:
           - 2021.3.16f1
         targetPlatform:
@@ -73,7 +73,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - apps/
+          - src/
         unityVersion:
           - 2021.3.16f1
         targetPlatform:
