@@ -10,7 +10,7 @@ jobs:
     name: Build for Android
     runs-on: ubuntu-latest
     env:
-      projectPath: apps/
+      projectPath: src/
       unityVersion: 2021.3.16f1
       targetPlatform: Android # Build an Android player.
     steps:
