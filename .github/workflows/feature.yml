@@ -9,7 +9,6 @@ jobs:
   build:
     name: Build for Android
     runs-on: ubuntu-latest
-    fail-fast: false
     env:
       projectPath: apps/
       unityVersion: 2021.3.16f1
