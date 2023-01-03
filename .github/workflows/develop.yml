@@ -148,6 +148,7 @@ jobs:
   deployToItchIo:
     runs-on: ubuntu-latest
     name: Deploying Itch.IO
+    needs: build
     environment: Development
     steps:
       - uses: actions/download-artifact@v2.0.8
