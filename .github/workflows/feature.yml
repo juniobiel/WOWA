@@ -92,7 +92,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "develop"
-          pr_title: "Pulling ${{ github.ref }} into develop"
+          pr_title: "Pull ${{ github.ref }} into develop"
   
           
 
