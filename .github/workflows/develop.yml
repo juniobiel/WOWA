@@ -116,7 +116,6 @@ jobs:
             Library-${{ matrix.projectPath }}-
             Library-
 
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2.1.2
@@ -147,7 +146,7 @@ jobs:
   # Deploy to itch.io
   deployToItchIo:
     runs-on: ubuntu-latest
-    name: Deploying Itch.IO
+    name: Deploying Itch.io
     needs: build
     environment: Development
     steps:
@@ -163,3 +162,25 @@ jobs:
           itchGameId: ${{ secrets.ITCH_GAME_ID }}
           buildChannel: webgl
           buildNumber: ${{ needs.version.outputs.version_hash }}
+  
+  pullToRelease:
+    name: Create pull request to Release
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # Checkout (without LFS)
+      - name: Checkout repository
+        uses: actions/checkout@v2.6.0
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      # Create pull request
+      # https://github.com/marketplace/actions/github-pull-request-action
+      - name: Created pull request to release
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "release"
+          pr_title: "Pulling ${{ github.ref }} into release"
+          pr_body: |                                        # Full markdown support, requires pr_title to be set
+          :crown: *Automated PR to release branch*
