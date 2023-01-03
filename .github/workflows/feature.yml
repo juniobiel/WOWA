@@ -98,6 +98,18 @@ jobs:
           git lfs pull
           git add .
           git reset --hard
+          
+      # Cache
+      - uses: actions/cache@v3.2.2
+        with:
+          path: ${{ env.projectPath }}/Library
+          key:
+            Library-${{ env.projectPath }}-${{ env.targetPlatform }}-${{
+            hashFiles(env.projectPath) }}
+          restore-keys: |
+            Library-${{ env.projectPath }}-${{ env.targetPlatform }}-
+            Library-${{ env.projectPath }}-
+            Library-
 
       # Create pull request
       - name: Created pull request to develop
