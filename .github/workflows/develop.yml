@@ -153,7 +153,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2.0.8
         with:
-          name: WebGL
+          name: Develop-Build-WebGL
           path: build/Develop-Build-WebGL
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
