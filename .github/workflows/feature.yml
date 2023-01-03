@@ -82,41 +82,15 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      # Git LFS
-      - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-
-      - name: Restore LFS cache
-        uses: actions/cache@v3.2.2
-        id: lfs-cache
-        with:
-          path: .git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
-
-      - name: Git LFS Pull
-        run: |
-          git lfs pull
-          git add .
-          git reset --hard
-          
-      # Cache
-      - uses: actions/cache@v3.2.2
-        with:
-          path: ${{ env.projectPath }}/Library
-          key:
-            Library-${{ env.projectPath }}-${{ env.targetPlatform }}-${{
-            hashFiles(env.projectPath) }}
-          restore-keys: |
-            Library-${{ env.projectPath }}-${{ env.targetPlatform }}-
-            Library-${{ env.projectPath }}-
-            Library-
-
       # Create pull request
       - name: Created pull request to develop
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "develop"
-          pr_title: "Pull ${{ github.ref }} into develop"
+          pr_title: "Pulling ${{ github.ref }} into develop"
+          pr_body: |
+            :crown: *Automated PR to develop*
+
   
           
 
