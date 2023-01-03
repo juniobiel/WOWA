@@ -87,9 +87,11 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "develop"
-          pr_title: "Pull ${{ github.ref }} into develop"
-          pr_body: |                                        # Full markdown support, requires pr_title to be set
+          pr_title: "Pulling ${{ github.ref }} into develop"
+          pr_body: |
           :crown: *Automated PR to develop*
+          _Created by [repo-sync/pull-request](https://github.com/repo-sync/pull-request)_
+          
   
           
 
