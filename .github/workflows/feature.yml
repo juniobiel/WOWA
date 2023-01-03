@@ -12,12 +12,9 @@ jobs:
     strategy:
       fail-fast: false
       env:
-        projectPath:
-          - apps/
-        unityVersion:
-          - 2021.3.16f1
-        targetPlatform:
-          - Android # Build an Android player.
+        projectPath: apps/
+        unityVersion: 2021.3.16f1
+        targetPlatform: Android # Build an Android player.
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
