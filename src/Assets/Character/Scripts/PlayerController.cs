@@ -1,18 +1,45 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed;
-    public Rigidbody2D playerRigidbody2D { get; private set; }
-    public FixedJoystick playerJoystick;
+    [SerializeField] private float Speed;
+    [SerializeField] private float JumpForce;
+    private bool GroundedPlayer;
+    
+    private Rigidbody2D _playerRigidbody2D;
+    private PlayerInputMap _playerInput;
 
-    private void Start()
+    private void Awake()
     {
-        playerRigidbody2D = GetComponent<Rigidbody2D>();
+        _playerInput = new PlayerInputMap();
+        _playerRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    public void FixedUpdate()
+    private void OnEnable()
     {
-        playerRigidbody2D.velocity = Vector3.right * playerJoystick.Horizontal * Speed;
+        _playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.Disable();
+    }
+
+    public void Update()
+    {
+        var moveValue = _playerInput.PlayerTouch.Move.ReadValue<Vector2>();
+
+        moveValue = new Vector2(moveValue.x * Speed, _playerRigidbody2D.velocity.y);
+
+        _playerRigidbody2D.velocity = moveValue;
+
+        if (_playerInput.PlayerTouch.Jump.triggered)
+            Jump();
+    }
+
+    private void Jump()
+    {
+        _playerRigidbody2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
     }
 }
