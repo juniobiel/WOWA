@@ -16,8 +16,7 @@ public class CollectOrbsSystem : MonoBehaviour
     }
 
     private void Orb_OnOrbCollected(CommonOrb orb)
-    {
-        Debug.Log("Orb coletado");
+    {        
         CollectedOrbs += 1;
 
         UpdateCommonOrbScore.Invoke(CollectedOrbs);
@@ -28,7 +27,6 @@ public class CollectOrbsSystem : MonoBehaviour
 
     private void RareOrb_OnRareOrbCollected(RareOrb rareOrb)
     {
-        Debug.Log("Orbe Raro coletado");
         CollectedRareOrbs += 1;
 
         UpdateRareOrbScore.Invoke(CollectedRareOrbs);
