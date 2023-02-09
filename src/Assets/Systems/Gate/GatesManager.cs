@@ -14,7 +14,11 @@ public class GatesManager : MonoBehaviour
     private void Gate_OnGateEntered( Gate obj )
     {
         if (SadDoorKeyCollected)
-            Debug.Log("Open the gate");
+        {
+            obj.gameObject.GetComponent<Animator>().SetBool("CanOpenGate", true);
+            Debug.Log("Abre-te sesámo");
+        }
+            
     }
 
     private void SadDoorKey_OnSadDoorKeyCollect( SadDoorKey sadDoorKey )

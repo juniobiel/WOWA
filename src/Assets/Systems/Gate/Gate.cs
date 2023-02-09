@@ -17,4 +17,9 @@ public class Gate : MonoBehaviour
     {
         return GateName;
     }
+
+    public void DestroyGate()
+    {
+        Destroy(gameObject);
+    }
 }
