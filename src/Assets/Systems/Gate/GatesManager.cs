@@ -16,7 +16,6 @@ public class GatesManager : MonoBehaviour
         if (SadDoorKeyCollected)
         {
             obj.gameObject.GetComponent<Animator>().SetBool("CanOpenGate", true);
-            Debug.Log("Abre-te sesámo");
         }
             
     }
